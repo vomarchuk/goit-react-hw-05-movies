@@ -1,0 +1,12 @@
+/* Additional Info */
+.additional_info {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+.additional_list {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.additional_item:not(:first-child) {
+  margin-top: 5px;
+}

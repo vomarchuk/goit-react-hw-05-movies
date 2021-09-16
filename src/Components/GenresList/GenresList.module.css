@@ -1,0 +1,6 @@
+.list {
+  display: flex;
+}
+.item:not(:first-child) {
+  margin-left: 10px;
+}

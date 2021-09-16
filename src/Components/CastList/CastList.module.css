@@ -1,0 +1,22 @@
+.list {
+  margin-top: 30px;
+  padding-left: 30px;
+}
+.item:not(:first-child) {
+  margin-top: 25px;
+}
+
+.item_img {
+  width: 100px;
+  height: auto;
+  box-shadow: 0px 0px 5px 3px #ccc;
+}
+.not_found_img {
+  width: 100px;
+  height: 150px;
+  box-shadow: 0px 0px 5px 3px #ccc;
+}
+
+.text {
+  margin-top: 5px;
+}
