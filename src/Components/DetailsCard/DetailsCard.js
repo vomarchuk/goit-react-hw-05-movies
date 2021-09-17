@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import GenresList from '../GenresList';
 import notFoundImg from '../../images/not_Found.svg';
 import s from './DetailsCard.module.css';
@@ -34,5 +35,9 @@ const DetailsCard = ({ imageUrl, movie }) => {
       </div>
     </>
   );
+};
+DetailsCard.propTypes = {
+  imageUrl: PropTypes.string,
+  movie: PropTypes.object,
 };
 export default DetailsCard;

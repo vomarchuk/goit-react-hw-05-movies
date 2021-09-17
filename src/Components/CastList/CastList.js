@@ -1,6 +1,7 @@
 import movieAPI from '../../Service/Movies-API';
 import notFoundImg from '../../images/not_Found.svg';
 import s from './CastList.module.css';
+import PropTypes from 'prop-types';
 
 const { IMAGE_URL } = movieAPI;
 
@@ -33,5 +34,7 @@ const CastList = ({ cast }) => {
     </>
   );
 };
-
+CastList.propTypes = {
+  cast: PropTypes.array,
+};
 export default CastList;

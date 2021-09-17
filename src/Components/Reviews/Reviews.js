@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import Container from '../Container';
 import s from './Reviews.module.css';
 const Reviews = ({ reviews }) => {
@@ -17,5 +19,8 @@ const Reviews = ({ reviews }) => {
     );
   }
   return <h3>We don't have any reviews for this movie :(</h3>;
+};
+Reviews.propTypes = {
+  reviews: PropTypes.array,
 };
 export default Reviews;

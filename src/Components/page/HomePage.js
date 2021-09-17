@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import TrendingList from '../TrendingList/TrendingList';
 function HomePage({ listMovie }) {
   return (
@@ -7,5 +9,9 @@ function HomePage({ listMovie }) {
     </>
   );
 }
+
+TrendingList.propTypes = {
+  listMovie: PropTypes.arrayOf(PropTypes.shape),
+};
 
 export default HomePage;

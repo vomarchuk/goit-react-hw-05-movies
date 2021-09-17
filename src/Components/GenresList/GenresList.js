@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import s from './GenresList.module.css';
 const GenresList = ({ genres, title }) => {
   return (
@@ -12,5 +14,9 @@ const GenresList = ({ genres, title }) => {
       </ul>
     </>
   );
+};
+GenresList.propTypes = {
+  genres: PropTypes.array,
+  title: PropTypes.string,
 };
 export default GenresList;
