@@ -1,8 +1,9 @@
-import { useRouteMatch } from 'react-router';
+import { useRouteMatch, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
 const SearchsMoviesList = ({ moviesCollection }) => {
   const { url } = useRouteMatch();
+  const location = useLocation();
 
   if (moviesCollection.length > 0) {
     return (
@@ -11,7 +12,14 @@ const SearchsMoviesList = ({ moviesCollection }) => {
           const { id, title } = movie;
           return (
             <li key={id}>
-              <Link to={`${url}/${id}`}>{title}</Link>
+              <Link
+                to={{
+                  pathname: `${url}/${id}`,
+                  state: { from: location },
+                }}
+              >
+                {title}
+              </Link>
             </li>
           );
         })}
