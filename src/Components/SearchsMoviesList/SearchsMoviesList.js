@@ -17,7 +17,10 @@ const SearchsMoviesList = ({ moviesCollection }) => {
               <Link
                 to={{
                   pathname: `${url}/${id}`,
-                  state: { from: location },
+                  state: {
+                    from: location,
+                    label: 'Go Movies',
+                  },
                 }}
               >
                 {title}

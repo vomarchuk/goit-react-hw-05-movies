@@ -12,7 +12,10 @@ const TrendingList = ({ listMovie }) => {
           <Link
             to={{
               pathname: `/movies/${item.id}`,
-              state: { from: location },
+              state: {
+                from: location,
+                label: 'Back Home',
+              },
             }}
           >
             {item.title}

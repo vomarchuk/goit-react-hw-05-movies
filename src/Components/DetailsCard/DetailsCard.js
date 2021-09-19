@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
+import { useLocation, useHistory } from 'react-router';
+import { useRef } from 'react';
 import GenresList from '../GenresList';
 import notFoundImg from '../../images/not_Found.svg';
 import s from './DetailsCard.module.css';
-import { useLocation, useHistory } from 'react-router';
 
 const DetailsCard = ({ imageUrl, movie }) => {
   const location = useLocation();
   const histori = useHistory();
-
+  const onBackLink = useRef(location?.state?.from);
   const cardImage = `${imageUrl}${movie['poster_path']}`;
+  const buttonName = useRef(location?.state?.label);
 
   const onGoBack = () => {
-    histori.push(location?.state?.from ?? '/');
+    histori.push(onBackLink.current ?? '/');
   };
   return (
     <>
       <button type="button" onClick={onGoBack}>
-        go back
+        {buttonName.current}
       </button>
 
       <div className={s.card}>

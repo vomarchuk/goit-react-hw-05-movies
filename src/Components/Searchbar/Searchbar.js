@@ -12,7 +12,6 @@ const Searchbar = ({ onSubmit }) => {
 
   const hundleSubmit = event => {
     event.preventDefault();
-
     onSubmit(query);
     setQuery('');
   };

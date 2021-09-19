@@ -10,9 +10,18 @@ const { fetchQueryMovie } = movieAPI;
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
+  const [hisporySearch, setHistorySearch] = useState(null);
   const [moviesCollection, setMoviesCollection] = useState(null);
   const location = useLocation();
   const history = useHistory();
+
+  const historyQuery =
+    history.location.search &&
+    history.location.search
+      .match(/[a-z 0-9]+$/g)
+      .join()
+      .trim('');
+
   const getSearchMovies = query => {
     history.push({
       ...location,
@@ -20,6 +29,11 @@ const MoviesPage = () => {
     });
     setQuery(query);
   };
+
+  useEffect(() => {
+    setHistorySearch(historyQuery);
+    setQuery(hisporySearch);
+  }, [hisporySearch]);
 
   useEffect(() => {
     if (query) {
