@@ -1,17 +1,24 @@
 import PropTypes from 'prop-types';
-
-import TrendingList from '../TrendingList/TrendingList';
-function HomePage({ listMovie }) {
+import Title from '../Title';
+import MoviesList from '../MoviesList/MoviesList';
+const HomePage = ({ listMovie, imageUrl }) => {
   return (
     <>
-      <h1>Trending today</h1>
-      {listMovie && <TrendingList listMovie={listMovie} />}
+      <Title title="Trending today" />
+      {listMovie && (
+        <MoviesList
+          listMovie={listMovie}
+          imageUrl={imageUrl}
+          btnName="Go Home"
+        />
+      )}
     </>
   );
-}
+};
 
-TrendingList.propTypes = {
+HomePage.propTypes = {
   listMovie: PropTypes.arrayOf(PropTypes.shape),
+  imageUrl: PropTypes.string,
 };
 
 export default HomePage;

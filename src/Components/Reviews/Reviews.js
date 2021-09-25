@@ -1,14 +1,7 @@
 import PropTypes from 'prop-types';
-// import { useHistory, useLocation } from 'react-router';
-
 import Container from '../Container';
 import s from './Reviews.module.css';
 const Reviews = ({ reviews }) => {
-  // const history = useHistory();
-  // const location = useLocation();
-
-  // console.log(history.location);
-  // console.log(location);
   if (reviews.length > 0) {
     return (
       <Container>

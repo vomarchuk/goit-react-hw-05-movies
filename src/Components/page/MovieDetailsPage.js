@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
-import { Route, useParams, useRouteMatch, useLocation } from 'react-router';
+import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import movieAPI from '../../Service/Movies-API';
+import * as movieAPI from '../../Service/Movies-API';
 import DetailsCard from '../DetailsCard';
 import s from './page.module.css';
 
@@ -20,7 +20,6 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const { fetchDetailsMovie, fetchCastMovie, fetchReviewsMovie, IMAGE_URL } =
     movieAPI;
-  const location = useLocation();
 
   useEffect(() => {
     fetchDetailsMovie(movieId).then(setMovie);
@@ -40,9 +39,6 @@ const MovieDetailsPage = () => {
               <NavLink
                 to={{
                   pathname: `${url}/cast`,
-                  // state: {
-                  //   from: location,
-                  // },
                 }}
               >
                 Cast
@@ -52,9 +48,6 @@ const MovieDetailsPage = () => {
               <NavLink
                 to={{
                   pathname: `${url}/reviews`,
-                  // state: {
-                  //   from: location,
-                  // },
                 }}
               >
                 Reviews

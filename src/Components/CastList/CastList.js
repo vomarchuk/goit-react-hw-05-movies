@@ -1,4 +1,4 @@
-import movieAPI from '../../Service/Movies-API';
+import * as movieAPI from '../../Service/Movies-API';
 import notFoundImg from '../../images/not_Found.svg';
 import s from './CastList.module.css';
 import PropTypes from 'prop-types';

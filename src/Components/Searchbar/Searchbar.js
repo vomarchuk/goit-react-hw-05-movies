@@ -1,25 +1,33 @@
 import PropTypes from 'prop-types';
-
 import { useState } from 'react';
+
+import { BsSearch } from 'react-icons/bs';
+
+import s from './Searchbar.module.css';
 
 const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState(' ');
 
   const hundleChange = event => {
     event.preventDefault();
-    setQuery(event.currentTarget.value);
+    const query = event.currentTarget.value;
+    setQuery(query);
   };
 
   const hundleSubmit = event => {
     event.preventDefault();
-    onSubmit(query);
+    if (query.trim() === '') {
+      return;
+    }
+    onSubmit(query.trim());
     setQuery('');
   };
 
   return (
     <>
-      <form onSubmit={hundleSubmit}>
+      <form className={s.form} onSubmit={hundleSubmit}>
         <input
+          className={s.input}
           type="text"
           value={query}
           onChange={hundleChange}
@@ -27,7 +35,9 @@ const Searchbar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search movie"
         />
-        <button type="submit">Search</button>
+        <button className={s.button} type="submit">
+          <BsSearch className={s.icon} />
+        </button>
       </form>
     </>
   );

@@ -1,12 +1,10 @@
-import Section from '../Section';
-import Searchbar from '../Searchbar';
-import Container from '../Container';
-import { useState, useEffect } from 'react';
-import movieAPI from '../../Service/Movies-API';
-import SearchsMoviesList from '../SearchsMoviesList/SearchsMoviesList';
 import { useHistory, useLocation } from 'react-router';
+import { useState, useEffect } from 'react';
+import Searchbar from '../Searchbar';
+import * as movieAPI from '../../Service/Movies-API';
+import MoviesList from '../MoviesList';
 
-const { fetchQueryMovie } = movieAPI;
+const { fetchQueryMovie, IMAGE_URL } = movieAPI;
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
@@ -43,14 +41,16 @@ const MoviesPage = () => {
   }, [query]);
 
   return (
-    <Section>
-      <Container>
-        <Searchbar onSubmit={getSearchMovies} />
-        {moviesCollection && (
-          <SearchsMoviesList moviesCollection={moviesCollection} />
-        )}
-      </Container>
-    </Section>
+    <>
+      <Searchbar onSubmit={getSearchMovies} />
+      {moviesCollection && (
+        <MoviesList
+          listMovie={moviesCollection}
+          imageUrl={IMAGE_URL}
+          btnName="Go Movies"
+        />
+      )}
+    </>
   );
 };
 
